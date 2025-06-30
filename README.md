@@ -2,4 +2,7 @@
 
 ## Lectures
 
-- Lecture 2 code in `Lecture2` folder. To execute follow the instructions in the `README.md` file in that folder.
+- Lecture 2: This class is related to how use LLM through API in Python.
+- Lecture 3: This class is to use Text Processing techniques, using spaCy.
+
+OBS: Each folder has a `README.md` file with the instructions to execute the code.
