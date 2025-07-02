@@ -1,0 +1,7 @@
+agno
+arize-phoenix
+openai
+openinference-instrumentation-agno
+opentelemetry-sdk
+opentelemetry-exporter-otlp
+python-dotenv
