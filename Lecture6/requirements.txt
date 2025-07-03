@@ -1,0 +1,6 @@
+agno
+openai
+docling
+python-dotenv
+qdrant-client
+semantic-text-splitter

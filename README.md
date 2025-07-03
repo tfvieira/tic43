@@ -6,5 +6,6 @@
 - Lecture 3: This class is to use Text Processing techniques, using spaCy.
 - Lecture 4: This class is to building an AI application with UI, using Gradio.
 - Lecture 5: This class is to use OpenInference to trace the execution of the code and study how to use Chain of Thought (CoT) to improve the performance of the LLM.
+- Lecture 6: This class is to use Qdrant to store the context of the documents and use it to answer questions.
 
 OBS: Each folder has a `README.md` file with the instructions to execute the code.
