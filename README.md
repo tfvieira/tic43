@@ -8,5 +8,6 @@
 - Lecture 5: This class is to use OpenInference to trace the execution of the code and study how to use Chain of Thought (CoT) to improve the performance of the LLM.
 - Lecture 6: This class is to use Qdrant to store the context of the documents and use it to answer questions.
 - Lecture 7: Creation of a MCP server for extract OS information and pass it to the LLM.
+- Lecture 8: Creation of an application with Backend and Frontend, using FastAPI and NiceGUI, that is able to create, edit, delete and execute tasks.
 
 OBS: Each folder has a `README.md` file with the instructions to execute the code.

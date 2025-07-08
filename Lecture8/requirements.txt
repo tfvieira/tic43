@@ -1,0 +1,4 @@
+pywebview
+nicegui
+fastapi
+agno
