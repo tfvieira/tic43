@@ -1,4 +1,4 @@
-# Lecture 4
+# Lecture 6
 
 1. Duplicate the `.env.example` file and rename it to `.env`.
 2. Open the `.env` file and set the `OPENAI_API_KEY` variable with your OpenAI API key.
