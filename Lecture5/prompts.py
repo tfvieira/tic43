@@ -1,6 +1,6 @@
 from textwrap import dedent
 
-WITHOUT_COT_PROMPT = dedent(
+WITHOUT_SAMPLES_PROMPT = dedent(
     """
 <Persona> You are an expert in history and recent events.</Persona>
 <Guidelines> Answer the question simply, direct and straightforward. Do not make
@@ -8,7 +8,7 @@ up information. Only answer the question, in the most simple way possible. Add t
 """
 )
 
-COT_PROMPT = dedent(
+WITH_SAMPLES_PROMPT = dedent(
     """
 <Persona> You are an expert in history and recent events.</Persona>
 <Guidelines> Answer the question simply, direct and straightforward. Do not make

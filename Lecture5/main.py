@@ -5,7 +5,7 @@ from agno.agent import Agent
 from phoenix.otel import register
 from dotenv import load_dotenv
 
-from prompts import COT_PROMPT, WITHOUT_COT_PROMPT
+from prompts import WITH_SAMPLES_PROMPT, WITHOUT_SAMPLES_PROMPT
 
 
 tracer_provider = register(
@@ -29,13 +29,13 @@ if __name__ == "__main__":
     cot_agent = Agent(
         tools=[DuckDuckGoTools()],
         show_tool_calls=True,
-        model=OpenAIChat(id="gpt-4o-mini", system_prompt=COT_PROMPT),
+        model=OpenAIChat(id="gpt-4o-mini", system_prompt=WITH_SAMPLES_PROMPT),
     )
 
     without_cot_agent = Agent(
         tools=[DuckDuckGoTools()],
         show_tool_calls=True,
-        model=OpenAIChat(id="gpt-4o-mini", system_prompt=WITHOUT_COT_PROMPT),
+        model=OpenAIChat(id="gpt-4o-mini", system_prompt=WITHOUT_SAMPLES_PROMPT),
     )
 
     output = random_func("input")
