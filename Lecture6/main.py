@@ -75,4 +75,4 @@ if __name__ == "__main__":
             search_knowledge=True,
         )
 
-        agent.print_response(QUERY)
+        agent.print_response(QUERY, markdown=True)
