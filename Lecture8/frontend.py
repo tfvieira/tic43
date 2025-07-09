@@ -145,9 +145,9 @@ class TaskManager:
         """
         Create a new task.
         """
-        loading_spinner = dialog.parent_slot.parent.default_slot.children[2]
+        # loading_spinner = dialog.parent_slot.parent.default_slot.children[2]
         try:
-            loading_spinner.set_visibility(True)
+            # loading_spinner.set_visibility(True)
             parameters = [
                 {"name": param_name}
                 for param_name in parameter_names
@@ -175,8 +175,6 @@ class TaskManager:
             ui.notify(
                 f"Failed to create task: {e}", type="negative", color=NEGATIVE_COLOR
             )
-        finally:
-            loading_spinner.set_visibility(False)
 
     async def edit_task(
         self,
