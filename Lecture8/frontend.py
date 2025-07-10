@@ -66,7 +66,6 @@ class TaskManager:
         self.items_per_page = 10
         self.total_tasks = 0
 
-        # UI element references
         self.task_table = None
         self.pagination_info = None
         self.loading_spinner = None
@@ -114,7 +113,7 @@ class TaskManager:
                 for task_data in tasks_data
             ]
             self.total_tasks = len(self.tasks)
-            # Reset to first page if the task list changes significantly
+
             if self.current_page * self.items_per_page >= self.total_tasks:
                 self.current_page = 0
 
@@ -145,9 +144,7 @@ class TaskManager:
         """
         Create a new task.
         """
-        # loading_spinner = dialog.parent_slot.parent.default_slot.children[2]
         try:
-            # loading_spinner.set_visibility(True)
             parameters = [
                 {"name": param_name}
                 for param_name in parameter_names
@@ -346,8 +343,6 @@ class TaskManager:
             self.update_task_table()
             self.update_pagination()
 
-    # --- UI Dialogs ---
-
     def _create_dialog_card(self, title: str) -> ui.card:
         """Helper to create a styled dialog card."""
         card = ui.card().classes("w-full").style("min-width: 60vw; max-width: 70vw;")
@@ -394,7 +389,6 @@ class TaskManager:
                         ).props("flat round").style(f"color: {NEGATIVE_COLOR}")
 
             def remove_parameter(row_to_remove: ui.row):
-                # Find the input to remove from the list
                 input_to_remove = next(
                     (inp for inp in param_inputs if inp.parent == row_to_remove), None
                 )
@@ -639,8 +633,6 @@ class TaskManager:
             task_name, parameters, loading_spinner, result_container
         )
 
-    # --- Main Page Layout ---
-
     def create_task_table_content(self) -> None:
         """
         Create the content for the task table.
@@ -658,7 +650,6 @@ class TaskManager:
                 ).style(f"color: {TEXT_SECONDARY_COLOR}")
             return
 
-        # Table Header
         with ui.row().classes("w-full p-2").style(
             f"background-color: {BACKGROUND_COLOR}; border-bottom: 2px solid {BORDER_COLOR}"
         ):
@@ -667,7 +658,6 @@ class TaskManager:
             ui.label("Parameters").classes("font-bold").style("flex: 2")
             ui.label("Actions").classes("font-bold text-center").style("flex: 2")
 
-        # Table Rows
         for task in paginated_tasks:
             with ui.row().classes("w-full items-center p-2 hover:bg-gray-100"):
                 ui.label(task.name).classes("font-medium").style("flex: 2")
@@ -747,8 +737,6 @@ class TaskManager:
 
         asyncio.create_task(self.refresh_tasks())
 
-
-# --- App Initialization ---
 
 task_manager = TaskManager()
 

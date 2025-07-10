@@ -26,21 +26,18 @@ class TaskModel(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True, nullable=False)
     system_prompt = Column(Text, nullable=False)
-    parameters = Column(Text, nullable=False)  # JSON string of parameter definitions
+    parameters = Column(Text, nullable=False)
 
 
-# Create tables
 Base.metadata.create_all(bind=engine)
 
 
-# FastAPI app
 app = FastAPI(
     title="Task Management API",
     description="API for managing and executing AI tasks using Agno agents",
     version="1.0.0",
 )
 
-# Agent setup
 agent = Agent(
     name="Task Executor",
     model=OpenAIChat(id="gpt-4o-mini"),
@@ -51,7 +48,6 @@ agent = Agent(
 )
 
 
-# Pydantic Models
 class TaskParameter(BaseModel):
     """
     Model for task parameter definition.
@@ -128,17 +124,14 @@ def create_task(task: TaskCreate, db: Session = Depends(get_db)) -> TaskResponse
     :rtype: TaskResponse
     """
     try:
-        # Check if task name already exists
         existing_task = db.query(TaskModel).filter(TaskModel.name == task.name).first()
         if existing_task:
             raise HTTPException(
                 status_code=400, detail=f"Task with name '{task.name}' already exists"
             )
 
-        # Convert parameters to JSON string
         parameters_json = json.dumps([param.dict() for param in task.parameters])
 
-        # Create new task
         db_task = TaskModel(
             name=task.name, system_prompt=task.system_prompt, parameters=parameters_json
         )
@@ -147,7 +140,6 @@ def create_task(task: TaskCreate, db: Session = Depends(get_db)) -> TaskResponse
         db.commit()
         db.refresh(db_task)
 
-        # Parse parameters back for response
         parameters = [
             TaskParameter(**param) for param in json.loads(db_task.parameters)
         ]
@@ -187,16 +179,13 @@ def edit_task(
     :rtype: TaskResponse
     """
     try:
-        # Get existing task
         db_task = db.query(TaskModel).filter(TaskModel.id == task_id).first()
         if not db_task:
             raise HTTPException(
                 status_code=404, detail=f"Task with ID {task_id} not found"
             )
 
-        # Update fields if provided
         if task_update.name is not None:
-            # Check if new name already exists (excluding current task)
             existing_task = (
                 db.query(TaskModel)
                 .filter(TaskModel.name == task_update.name, TaskModel.id != task_id)
@@ -221,7 +210,6 @@ def edit_task(
         db.commit()
         db.refresh(db_task)
 
-        # Parse parameters for response
         parameters = [
             TaskParameter(**param) for param in json.loads(db_task.parameters)
         ]
@@ -263,14 +251,12 @@ def execute_task(
     :rtype: TaskExecutionResponse
     """
     try:
-        # Get task definition
         db_task = db.query(TaskModel).filter(TaskModel.name == task_name).first()
         if not db_task:
             raise HTTPException(status_code=404, detail=f"Task '{task_name}' not found")
 
         expected_params = json.loads(db_task.parameters)
 
-        # Validate that all required parameters are provided
         missing_params = []
         filtered_params = {}
         for param_def in expected_params:
