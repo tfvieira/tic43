@@ -2,3 +2,4 @@ mcp[cli]
 agno
 openai
 psutil
+python-dotenv
