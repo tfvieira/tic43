@@ -1,2 +1,4 @@
 mcp[cli]
 agno
+openai
+psutil
