@@ -13,5 +13,7 @@
 - Lecture 9: Creation of a team of agents that is able to extract the technologies, libraries, or tools mentioned in the user's query and use them to create a python script that can answer the user's query.
 - Lecture 10: No notes for this lecture.
 - Lecture 11: Evaluation of the performance of the agents, using LLM as judge combined with the `agno` library.
+- Lecture 12: Run agents teams with multiple steps, using the `agno` library.
+- Lecture 13: Use Phoenix to trace the execution of the code, prompt management, and annotations.
 
 OBS: Each folder has a `README.md` file with the instructions to execute the code.
