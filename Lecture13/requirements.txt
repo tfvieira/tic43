@@ -1,0 +1,6 @@
+arize-phoenix-otel
+arize-phoenix-client
+python-dotenv
+openai
+agno
+rich
