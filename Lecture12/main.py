@@ -59,12 +59,10 @@ def main() -> None:
 
     coder = Agent(
         model=OpenAIChat("gpt-4o-mini", system_prompt=CODER_PROMPT),
-        memory=memory,
     )
 
     reviewer = Agent(
         model=OpenAIChat("gpt-4o-mini", system_prompt=REVIEWER_PROMPT),
-        memory=memory,
     )
 
     review_suggestions = ""
