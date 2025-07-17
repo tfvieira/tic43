@@ -15,5 +15,6 @@
 - Lecture 11: Evaluation of the performance of the agents, using LLM as judge combined with the `agno` library.
 - Lecture 12: Run agents teams with multiple steps, using the `agno` library.
 - Lecture 13: Use Phoenix to trace the execution of the code, prompt management, and annotations.
+- Lecture 14: Create an agent that is able to describe an image.
 
 OBS: Each folder has a `README.md` file with the instructions to execute the code.
